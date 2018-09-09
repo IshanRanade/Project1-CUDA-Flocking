@@ -432,16 +432,6 @@ __global__ void kernUpdateVelNeighborSearchScattered(
     glm::clamp(min, glm::vec3(0, 0, 0), glm::vec3(gridResolution, gridResolution, gridResolution));
     glm::clamp(max, glm::vec3(0, 0, 0), glm::vec3(gridResolution, gridResolution, gridResolution));
 
-    //int x = floor(pos[index].x + abs(gridMin.x)) * inverseCellWidth;
-    //int y = floor(pos[index].y + abs(gridMin.y)) * inverseCellWidth;
-    //int z = floor(pos[index].z + abs(gridMin.z)) * inverseCellWidth;
-    //int particleCellIndex = gridIndex3Dto1D(, y, z, gridResolution);
-
-    // Nearest grid cell index
-    //int nearestX = x + round((1.0 * pos[index].x - 1.0 * x * cellWidth) / (1.0 * cellWidth));
-    //int nearestY = y + round((1.0 * pos[index].y - 1.0 * y * cellWidth) / (1.0 * cellWidth));
-    //int nearestZ = z + round((1.0 * pos[index].z - 1.0 * z * cellWidth) / (1.0 * cellWidth));
-
     int count1 = 0;
     int count3 = 0;
     glm::vec3 perceivedCenter;
@@ -484,6 +474,7 @@ __global__ void kernUpdateVelNeighborSearchScattered(
 
     if (count1 > 0) {
       perceivedCenter /= count1;
+      perceivedCenter = (perceivedCenter - pos[index]);
     }
 
     if (count3 > 0) {
@@ -492,7 +483,7 @@ __global__ void kernUpdateVelNeighborSearchScattered(
 
     glm::vec3 finalVel = vel1[index];
 
-    finalVel += (perceivedCenter - pos[index]) * rule1Scale;
+    finalVel += perceivedCenter * rule1Scale;
     finalVel += c * rule2Scale;
     finalVel += perceivedVelocity * rule3Scale;
 
