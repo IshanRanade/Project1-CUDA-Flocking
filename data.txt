@@ -1,0 +1,41 @@
+Coherent
+	Boids 1000
+		Blocksize 128 - 450
+		Blocksize 256 - 469
+		Blocksize 512 - 564
+	Boids 5000
+		Blocksize 128 - 398
+		Blocksize 256 - 395
+		Blocksize 512 - 396
+	Boids 10000
+		Blocksize 128 - 485
+		Blocksize 256 - 378
+		Blocksize 512 - 320
+
+Uniform
+	Boids 1000
+		Blocksize 128 - 555
+		Blocksize 256 - 553
+		Blocksize 512 - 496
+	Boids 5000
+		Blocksize 128 - 382
+		Blocksize 256 - 404
+		Blocksize 512 - 392
+	Boids 10000
+		Blocksize 128 - 444
+		Blocksize 256 - 277
+		Blocksize 512 - 242
+
+Naive
+	Boids 1000
+		Blocksize 128 - 460
+		Blocksize 256 - 509
+		Blocksize 512 - 464
+	Boids 5000
+		Blocksize 128 - 253
+		Blocksize 256 - 240
+		Blocksize 512 - 242
+	Boids 10000
+		Blocksize 128 - 121
+		Blocksize 256 - 117
+		Blocksize 512 - 114
